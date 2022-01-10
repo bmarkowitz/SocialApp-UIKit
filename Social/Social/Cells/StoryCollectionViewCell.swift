@@ -10,7 +10,7 @@ import UIKit
 class StoryCollectionViewCell: UICollectionViewCell {
     
     private let avatarView = AvatarView(height: 64, width: 64)
-    private let label = UILabel()
+    private let nameLabel = UILabel()
     
     private let stackView = UIStackView()
     
@@ -31,23 +31,23 @@ class StoryCollectionViewCell: UICollectionViewCell {
         stackView.spacing = 4
         
         stackView.addArrangedSubview(avatarView)
-        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(nameLabel)
         contentView.addSubview(stackView)
     }
     
     private func style() {
-        label.font = .preferredFont(forTextStyle: .caption1)
-        label.textColor = .secondaryLabel
-        label.text = "Hello"
+        nameLabel.font = .preferredFont(forTextStyle: .caption1)
+        nameLabel.textColor = .secondaryLabel
+        nameLabel.text = "Brett"
     }
     
     private func constrain() {
         // Giving these a priority silences some auto layout complaints
-        let bottomConstraint = stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        bottomConstraint.priority = .init(rawValue: 999)
-        
         let trailingConstraint = stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         trailingConstraint.priority = .init(rawValue: 999)
+        
+        let bottomConstraint = stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        bottomConstraint.priority = .init(rawValue: 999)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),

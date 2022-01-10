@@ -32,7 +32,7 @@ class AvatarView: UIView {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "person.crop.circle.fill")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         
         addSubview(imageView)
     }
@@ -43,14 +43,20 @@ class AvatarView: UIView {
     }
     
     private func constrain() {
+        let trailingConstraint = imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        trailingConstraint.priority = .init(rawValue: 999)
+        
+        let bottomConstraint = imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        bottomConstraint.priority = .init(rawValue: 999)
+        
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(greaterThanOrEqualToConstant: height),
-            imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: width),
+            imageView.heightAnchor.constraint(equalToConstant: height),
+            imageView.widthAnchor.constraint(equalToConstant: width),
             
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            trailingConstraint,
+            bottomConstraint
         ])
     }
 }

@@ -38,6 +38,8 @@ class FeedView: UIView {
                                 forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
         collectionView.register(StoryCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: StoryCollectionViewCell.self))
+        collectionView.register(PostCollectionViewCell.self,
+                                forCellWithReuseIdentifier: String(describing: PostCollectionViewCell.self))
         collectionView.register(SeparatorFooterView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: String(describing: SeparatorFooterView.self))
@@ -69,7 +71,7 @@ class FeedView: UIView {
                 let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(44),
                                                        heightDimension: .estimated(44))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                let spacing = CGFloat(10)
+                let spacing = CGFloat(24)
                 group.interItemSpacing = .fixed(spacing)
                 
                 let section = NSCollectionLayoutSection(group: group)
@@ -89,7 +91,12 @@ class FeedView: UIView {
             case .posts:
                 var listConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
                 listConfiguration.showsSeparators = false
-                return NSCollectionLayoutSection.list(using: listConfiguration, layoutEnvironment: layoutEnvironment)
+                
+                let section = NSCollectionLayoutSection.list(using: listConfiguration, layoutEnvironment: layoutEnvironment)
+                section.interGroupSpacing = 12
+                section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20)
+                
+                return section
             }
         }
         
@@ -106,11 +113,7 @@ class FeedView: UIView {
                 
                 return cell
             default:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UICollectionViewListCell.self), for: indexPath) as! UICollectionViewListCell
-                
-                var config = cell.defaultContentConfiguration()
-                config.text = "Hello"
-                cell.contentConfiguration = config
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PostCollectionViewCell.self), for: indexPath) as! PostCollectionViewCell
                 
                 return cell
             }
