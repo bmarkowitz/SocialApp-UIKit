@@ -32,7 +32,13 @@ class FeedView: UIView {
     
     private func configure() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: "PostCell")
+        collectionView.register(UICollectionViewListCell.self,
+                                forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
+        collectionView.register(StoryCollectionViewCell.self,
+                                forCellWithReuseIdentifier: String(describing: StoryCollectionViewCell.self))
+        collectionView.register(SeparatorFooterView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: String(describing: SeparatorFooterView.self))
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(collectionView)
@@ -55,11 +61,11 @@ class FeedView: UIView {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
             switch Section.allCases[sectionIndex] {
             case .stories:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(44),
+                                                      heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(44),
                                                        heightDimension: .estimated(44))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 let spacing = CGFloat(10)
@@ -68,7 +74,15 @@ class FeedView: UIView {
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = spacing
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 0)
+                section.supplementariesFollowContentInsets = false
+                
+                let footerSupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1)),
+                                                                                    elementKind: UICollectionView.elementKindSectionFooter,
+                                                                                    alignment: .bottom)
+                footerSupplementaryItem.contentInsets = .zero
+                
+                section.boundarySupplementaryItems = [footerSupplementaryItem]
                 
                 return section
             case .posts:
@@ -85,20 +99,33 @@ class FeedView: UIView {
         dataSource = UICollectionViewDiffableDataSource<Section, FeedItem.ID>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section)
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! UICollectionViewListCell
-            
-            var config = cell.defaultContentConfiguration()
+            switch sectionIdentifier {
+            case .stories:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
+                
+                return cell
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UICollectionViewListCell.self), for: indexPath) as! UICollectionViewListCell
+                
+                var config = cell.defaultContentConfiguration()
+                config.text = "Hello"
+                cell.contentConfiguration = config
+                
+                return cell
+            }
+        })
+        
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section)
             
             switch sectionIdentifier {
+            case .stories:
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: SeparatorFooterView.self), for: indexPath)
+                return header
             default:
-                config.text = "Hello"
+                return nil
             }
-            
-            cell.contentConfiguration = config
-            cell.contentView.backgroundColor = .systemRed
-            
-            return cell
-        })
+        }
     }
     
     private func updateCollectionView() {
