@@ -38,6 +38,7 @@ class AvatarView: UIView {
     }
     
     private func style() {
+        imageView.tintColor = .systemFill
         imageView.layer.cornerCurve = .circular
         imageView.layer.cornerRadius = height / 2
     }
