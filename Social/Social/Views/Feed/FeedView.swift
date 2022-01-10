@@ -32,6 +32,8 @@ class FeedView: UIView {
     
     private func configure() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         collectionView.register(UICollectionViewListCell.self,
                                 forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
         collectionView.register(StoryCollectionViewCell.self,
@@ -39,10 +41,15 @@ class FeedView: UIView {
         collectionView.register(SeparatorFooterView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: String(describing: SeparatorFooterView.self))
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(collectionView)
-        
+    }
+    
+    private func style() {
+        backgroundColor = .systemBackground
+    }
+    
+    private func constrain() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -50,12 +57,6 @@ class FeedView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
-    private func style() {
-        backgroundColor = .systemBackground
-    }
-    
-    private func constrain() { }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in

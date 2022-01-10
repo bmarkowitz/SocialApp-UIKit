@@ -68,16 +68,13 @@
 		8F29008C278B33C30055FBA2 /* Social */ = {
 			isa = PBXGroup;
 			children = (
-				8F290091278B33C30055FBA2 /* FeedViewController.swift */,
-				8F2900A2278B37440055FBA2 /* SocialTabBarController.swift */,
+				8F2900B7278BB2610055FBA2 /* Cells */,
+				8F2900B5278BB22F0055FBA2 /* Controllers */,
+				8F2900BA278BB3030055FBA2 /* Data */,
+				8F2900B4278BB2260055FBA2 /* Screens */,
+				8F2900B6278BB2390055FBA2 /* Views */,
 				8F2900A1278B36500055FBA2 /* Support */,
 				8F29009B278B33C50055FBA2 /* Info.plist */,
-				8F2900A4278B45560055FBA2 /* FeedView.swift */,
-				8F2900A8278B68810055FBA2 /* Data.swift */,
-				8F2900AC278B6A3A0055FBA2 /* StoryCollectionViewCell.swift */,
-				8F2900AE278B6AA60055FBA2 /* AvatarView.swift */,
-				8F2900B0278B82290055FBA2 /* SeparatorFooterView.swift */,
-				8F2900B2278B82400055FBA2 /* SeparatorView.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -91,6 +88,65 @@
 				8F290098278B33C50055FBA2 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		8F2900B4278BB2260055FBA2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8F290091278B33C30055FBA2 /* FeedViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8F2900B5278BB22F0055FBA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900A2278B37440055FBA2 /* SocialTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F2900B6278BB2390055FBA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900B9278BB2B30055FBA2 /* General */,
+				8F2900B8278BB2A30055FBA2 /* Feed */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F2900B7278BB2610055FBA2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900AC278B6A3A0055FBA2 /* StoryCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8F2900B8278BB2A30055FBA2 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900A4278B45560055FBA2 /* FeedView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		8F2900B9278BB2B30055FBA2 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900AE278B6AA60055FBA2 /* AvatarView.swift */,
+				8F2900B2278B82400055FBA2 /* SeparatorView.swift */,
+				8F2900B0278B82290055FBA2 /* SeparatorFooterView.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		8F2900BA278BB3030055FBA2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8F2900A8278B68810055FBA2 /* Data.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
