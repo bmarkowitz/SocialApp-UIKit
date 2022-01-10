@@ -109,8 +109,8 @@
 		8F2900B6278BB2390055FBA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8F2900B9278BB2B30055FBA2 /* General */,
 				8F2900B8278BB2A30055FBA2 /* Feed */,
+				8F2900B9278BB2B30055FBA2 /* General */,
 			);
 			path = Views;
 			sourceTree = "<group>";

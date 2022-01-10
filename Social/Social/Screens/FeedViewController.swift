@@ -19,6 +19,12 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Feed"
-        //view.backgroundColor = .systemBackground
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        let newPostBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"))
+        
+        navigationItem.rightBarButtonItem = newPostBarButtonItem
     }
 }
