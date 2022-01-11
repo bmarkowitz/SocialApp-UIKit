@@ -76,11 +76,10 @@
 		8F29008C278B33C30055FBA2 /* Social */ = {
 			isa = PBXGroup;
 			children = (
-				8F2900B7278BB2610055FBA2 /* Cells */,
 				8F2900BA278BB3030055FBA2 /* Data */,
-				8F2900C1278BD7350055FBA2 /* Extensions */,
-				8F2900B4278BB2260055FBA2 /* Tabs */,
 				8F2900B6278BB2390055FBA2 /* Components */,
+				8F2900B4278BB2260055FBA2 /* Tabs */,
+				8F2900C1278BD7350055FBA2 /* Extensions */,
 				8F29008D278B33C30055FBA2 /* AppDelegate.swift */,
 				8F29008F278B33C30055FBA2 /* SceneDelegate.swift */,
 				8F290096278B33C50055FBA2 /* Assets.xcassets */,
@@ -108,19 +107,11 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		8F2900B7278BB2610055FBA2 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				8F2900AC278B6A3A0055FBA2 /* StoryCollectionViewCell.swift */,
-				8F2900BB278BCDBC0055FBA2 /* PostCollectionViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		8F2900B8278BB2A30055FBA2 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				8F2900A4278B45560055FBA2 /* FeedView.swift */,
+				8F2900AC278B6A3A0055FBA2 /* StoryCollectionViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -156,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				8F2900C2278BE07F0055FBA2 /* PostCardView.swift */,
+				8F2900BB278BCDBC0055FBA2 /* PostCollectionViewCell.swift */,
 				8F2900BD278BD6170055FBA2 /* PostHeaderView.swift */,
 			);
 			path = Post;
