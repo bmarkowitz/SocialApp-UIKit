@@ -11,8 +11,10 @@ class PostCardView: UIView {
     
     private let postHeaderView = PostHeaderView()
     private let postLabel = UILabel()
+    private let postImageView = UIImageView()
     
     private let verticalStackView = UIStackView()
+    private let contentVerticalStackView = UIStackView()
     private let contentHorizontalStackView = UIStackView()
     
     private let paddingView = UIView()
@@ -33,16 +35,27 @@ class PostCardView: UIView {
         postLabel.numberOfLines = 0
         postLabel.font = UIFont.preferredFont(forTextStyle: .body)
         
+        postImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.axis = .vertical
-        verticalStackView.alignment = .leading
+        verticalStackView.alignment = .fill
         verticalStackView.spacing = 8
         
+        contentVerticalStackView.axis = .vertical
+        contentVerticalStackView.alignment = .fill
+        contentVerticalStackView.distribution = .fill
+        contentVerticalStackView.spacing = 8
+        
         contentHorizontalStackView.axis = .horizontal
-        contentHorizontalStackView.alignment = .leading
+        contentHorizontalStackView.alignment = .fill
+        contentHorizontalStackView.distribution = .fill
+        
+        contentVerticalStackView.addArrangedSubview(postLabel)
+        contentVerticalStackView.addArrangedSubview(postImageView)
         
         contentHorizontalStackView.addArrangedSubview(paddingView)
-        contentHorizontalStackView.addArrangedSubview(postLabel)
+        contentHorizontalStackView.addArrangedSubview(contentVerticalStackView)
         
         verticalStackView.addArrangedSubview(postHeaderView)
         verticalStackView.addArrangedSubview(contentHorizontalStackView)
@@ -52,16 +65,35 @@ class PostCardView: UIView {
     
     private func style() {
         postLabel.text = "This is a test post"
+        
+        postImageView.layer.cornerCurve = .continuous
+        postImageView.layer.cornerRadius = 12
+        postImageView.backgroundColor = .systemFill
+        postImageView.contentMode = .scaleAspectFit
+        postImageView.clipsToBounds = true
     }
     
     private func constrain() {
+        // Giving this a priority silences some auto layout complaints in the console
+        let bottomConstraint = verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        bottomConstraint.priority = .init(rawValue: 999)
+        
         NSLayoutConstraint.activate([
             paddingView.widthAnchor.constraint(equalToConstant: 56),
             
             verticalStackView.topAnchor.constraint(equalTo: topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            bottomConstraint
         ])
+        
+        if let image = postImageView.image {
+            postImageView.widthAnchor.constraint(equalTo: postImageView.heightAnchor, multiplier: image.size.width / image.size.height).isActive = true
+        } else {
+            NSLayoutConstraint.activate([
+                postImageView.widthAnchor.constraint(equalTo: contentVerticalStackView.widthAnchor),
+                postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor)
+            ])
+        }
     }
 }

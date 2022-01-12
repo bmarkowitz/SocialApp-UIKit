@@ -30,10 +30,10 @@ class PostCollectionViewCell: UICollectionViewListCell {
     
     private func constrain() {
         NSLayoutConstraint.activate([
-            postCardView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            postCardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            postCardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            postCardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            postCardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            postCardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            postCardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            postCardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
     }
 }

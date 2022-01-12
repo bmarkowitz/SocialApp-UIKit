@@ -44,6 +44,7 @@ class AvatarView: UIView {
     }
     
     private func constrain() {
+        // Giving these a priority silences some auto layout complaints in the console
         let trailingConstraint = imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         trailingConstraint.priority = .init(rawValue: 999)
         

@@ -21,6 +21,7 @@ class SeparatorFooterView: UICollectionReusableView {
     private func constrain() {
         addSubview(separatorView)
         
+        // Giving this a priority silences some auto layout complaints in the console
         let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
         bottomConstraint.priority = .init(rawValue: 999)
         

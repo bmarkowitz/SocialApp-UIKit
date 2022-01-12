@@ -32,7 +32,7 @@ class PostHeaderView: UIView {
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         horizontalStackView.axis = .horizontal
         horizontalStackView.alignment = .center
-        horizontalStackView.distribution = .fillProportionally
+        horizontalStackView.distribution = .fill
         horizontalStackView.spacing = 8
         
         verticalStackView.axis = .vertical

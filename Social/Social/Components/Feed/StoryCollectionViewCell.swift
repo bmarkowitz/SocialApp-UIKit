@@ -42,7 +42,7 @@ class StoryCollectionViewCell: UICollectionViewCell {
     }
     
     private func constrain() {
-        // Giving these a priority silences some auto layout complaints
+        // Giving these a priority silences some auto layout complaints in the console
         let trailingConstraint = stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         trailingConstraint.priority = .init(rawValue: 999)
         

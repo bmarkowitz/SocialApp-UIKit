@@ -71,11 +71,8 @@ class FeedView: UIView {
                 let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(44),
                                                        heightDimension: .estimated(44))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                let spacing = CGFloat(24)
-                group.interItemSpacing = .fixed(spacing)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = spacing
                 section.orthogonalScrollingBehavior = .continuous
                 section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 20, trailing: 0)
                 section.supplementariesFollowContentInsets = false
@@ -93,9 +90,6 @@ class FeedView: UIView {
                 listConfiguration.showsSeparators = false
                 
                 let section = NSCollectionLayoutSection.list(using: listConfiguration, layoutEnvironment: layoutEnvironment)
-                section.interGroupSpacing = 12
-                section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20)
-                
                 return section
             }
         }
@@ -109,7 +103,7 @@ class FeedView: UIView {
             
             switch sectionIdentifier {
             case .stories:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier:String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
                 
                 return cell
             default:
