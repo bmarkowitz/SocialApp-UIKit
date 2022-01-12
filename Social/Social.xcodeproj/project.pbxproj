@@ -23,6 +23,7 @@
 		8F2900BE278BD6170055FBA2 /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2900BD278BD6170055FBA2 /* PostHeaderView.swift */; };
 		8F2900C0278BD7080055FBA2 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2900BF278BD7080055FBA2 /* UIFont.swift */; };
 		8F2900C3278BE07F0055FBA2 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2900C2278BE07F0055FBA2 /* PostCardView.swift */; };
+		8F7DDC14278E836F00FAD59D /* PostReactionsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC13278E836F00FAD59D /* PostReactionsBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8F2900BD278BD6170055FBA2 /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
 		8F2900BF278BD7080055FBA2 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		8F2900C2278BE07F0055FBA2 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
+		8F7DDC13278E836F00FAD59D /* PostReactionsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReactionsBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				8F2900C2278BE07F0055FBA2 /* PostCardView.swift */,
 				8F2900BB278BCDBC0055FBA2 /* PostCollectionViewCell.swift */,
 				8F2900BD278BD6170055FBA2 /* PostHeaderView.swift */,
+				8F7DDC13278E836F00FAD59D /* PostReactionsBarView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7DDC14278E836F00FAD59D /* PostReactionsBarView.swift in Sources */,
 				8F2900A5278B45560055FBA2 /* FeedView.swift in Sources */,
 				8F2900A9278B68810055FBA2 /* Data.swift in Sources */,
 				8F2900B3278B82400055FBA2 /* SeparatorView.swift in Sources */,

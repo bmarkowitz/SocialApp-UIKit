@@ -12,6 +12,7 @@ class PostCardView: UIView {
     private let postHeaderView = PostHeaderView()
     private let postLabel = UILabel()
     private let postImageView = UIImageView()
+    private let postReactionsBarView = PostReactionsBarView()
     
     private let verticalStackView = UIStackView()
     private let contentVerticalStackView = UIStackView()
@@ -48,6 +49,7 @@ class PostCardView: UIView {
         
         contentVerticalStackView.addArrangedSubview(postLabel)
         contentVerticalStackView.addArrangedSubview(postImageView)
+        contentVerticalStackView.addArrangedSubview(postReactionsBarView)
         
         contentHorizontalStackView.addArrangedSubview(paddingView)
         contentHorizontalStackView.addArrangedSubview(contentVerticalStackView)
