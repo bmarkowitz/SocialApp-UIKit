@@ -73,6 +73,7 @@ class FeedView: UIView {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 let section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 18
                 section.orthogonalScrollingBehavior = .continuous
                 section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 20, trailing: 0)
                 section.supplementariesFollowContentInsets = false

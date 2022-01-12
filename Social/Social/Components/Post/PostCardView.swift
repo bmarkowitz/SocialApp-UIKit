@@ -39,17 +39,12 @@ class PostCardView: UIView {
         
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.axis = .vertical
-        verticalStackView.alignment = .fill
         verticalStackView.spacing = 8
         
         contentVerticalStackView.axis = .vertical
-        contentVerticalStackView.alignment = .fill
-        contentVerticalStackView.distribution = .fill
         contentVerticalStackView.spacing = 8
         
         contentHorizontalStackView.axis = .horizontal
-        contentHorizontalStackView.alignment = .fill
-        contentHorizontalStackView.distribution = .fill
         
         contentVerticalStackView.addArrangedSubview(postLabel)
         contentVerticalStackView.addArrangedSubview(postImageView)
