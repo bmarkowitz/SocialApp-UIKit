@@ -9,6 +9,13 @@ import UIKit
 
 class ActivityView: UIView {
     
+    enum Section: Int {
+        case feed
+    }
+    
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Activity.ID>!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

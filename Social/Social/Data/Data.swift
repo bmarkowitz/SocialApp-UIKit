@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable, Hashable {
+struct User: Hashable {
     var id = UUID()
     var name: String
     var username: String
@@ -26,12 +26,12 @@ struct User: Codable, Hashable {
     }
 }
 
-struct Story: Codable, Hashable {
+struct Story: Hashable {
     var id = UUID()
     var user: User
 }
 
-struct Post: Codable, Hashable {
+struct Post: Hashable {
     var id = UUID()
     var content: String
     var imageURL: String?
@@ -52,6 +52,19 @@ struct Post: Codable, Hashable {
         formatter.unitsStyle = .short
         return formatter.localizedString(for: self.createdAt, relativeTo: Date()).replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "ago", with: "")
     }
+}
+
+enum ActivityType {
+    case followed
+    case liked
+}
+
+struct Activity: Identifiable, Hashable {
+    var id = UUID()
+    var type: ActivityType
+    var user: User
+    var post: Post?
+    var createdAt = Date()
 }
 
 enum FeedItem: Identifiable, Hashable {
@@ -133,4 +146,17 @@ let posts = [
         Post(content: "have fun!", imageURL: nil, user: user4, replies: [])
     ])),
     FeedItem.post(Post(content: "who has recommendations for a dentist near the park?", imageURL: nil, user: defaultUser, replies: [])),
+]
+
+let activities = [
+    Activity(type: .liked, user: user1),
+    Activity(type: .followed, user: user2),
+    Activity(type: .liked, user: user2),
+    Activity(type: .followed, user: user3),
+    Activity(type: .followed, user: user4),
+    Activity(type: .followed, user: user5),
+    Activity(type: .liked, user: user3),
+    Activity(type: .followed, user: user1),
+    Activity(type: .liked, user: user4),
+    Activity(type: .liked, user: user5),
 ]
