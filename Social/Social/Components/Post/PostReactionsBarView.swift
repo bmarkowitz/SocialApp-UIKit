@@ -13,8 +13,8 @@ class PostReactionsBarView: UIView {
     private let likeButton = UIButton()
     private let shareButton = UIButton()
     
-    private let actionsStackView = UIStackView()
     private let reactionsStackView = UIStackView()
+    private let actionsStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

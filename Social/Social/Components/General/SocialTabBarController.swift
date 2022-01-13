@@ -16,7 +16,8 @@ class SocialTabBarController: UITabBarController {
     
     private func configureTabBarController() {
         viewControllers = [
-            UINavigationController(rootViewController: createFeedViewController())
+            UINavigationController(rootViewController: createFeedViewController()),
+            UINavigationController(rootViewController: createActivityViewController())
         ]
     }
     
@@ -25,5 +26,12 @@ class SocialTabBarController: UITabBarController {
         feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper"), tag: 0)
         
         return feedViewController
+    }
+    
+    private func createActivityViewController() -> ActivityViewController {
+        let activityViewController = ActivityViewController()
+        activityViewController.tabBarItem = UITabBarItem(title: "Activity", image: UIImage(systemName: "bell.fill"), tag: 1)
+        
+        return activityViewController
     }
 }
