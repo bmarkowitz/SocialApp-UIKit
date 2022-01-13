@@ -34,8 +34,6 @@ class FeedView: UIView {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.register(UICollectionViewListCell.self,
-                                forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
         collectionView.register(StoryCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: StoryCollectionViewCell.self))
         collectionView.register(PostCollectionViewCell.self,
