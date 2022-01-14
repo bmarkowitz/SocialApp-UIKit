@@ -102,11 +102,6 @@ class ProfileView: UIView {
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PostCollectionViewCell.self), for: indexPath) as! PostCollectionViewCell
                 
-                var config = cell.defaultContentConfiguration()
-                config.text = "Post"
-                
-                cell.contentConfiguration = config
-                
                 return cell
             }
         })
