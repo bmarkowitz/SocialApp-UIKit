@@ -30,11 +30,12 @@ class ActivityView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: createLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.register(UICollectionViewListCell.self,
-                                forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
+        collectionView.register(ActivityCollectionViewCell.self,
+                                forCellWithReuseIdentifier: String(describing: ActivityCollectionViewCell.self))
         
         addSubview(collectionView)
     }
@@ -57,7 +58,8 @@ class ActivityView: UIView {
             var listConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
             listConfiguration.showsSeparators = false
             
-            let section = NSCollectionLayoutSection.list(using: listConfiguration, layoutEnvironment: layoutEnvironment)
+            let section = NSCollectionLayoutSection.list(using: listConfiguration,
+                                                         layoutEnvironment: layoutEnvironment)
             return section
             
         }
@@ -67,13 +69,8 @@ class ActivityView: UIView {
     
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, FeedItem.ID>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-           
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UICollectionViewListCell.self), for: indexPath) as! UICollectionViewListCell
             
-            var config = cell.defaultContentConfiguration()
-            config.text = "Testing"
-            
-            cell.contentConfiguration = config
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ActivityCollectionViewCell.self), for: indexPath) as! ActivityCollectionViewCell
             
             return cell
         })

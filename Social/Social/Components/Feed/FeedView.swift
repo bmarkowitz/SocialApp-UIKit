@@ -31,7 +31,8 @@ class FeedView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: createLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.register(StoryCollectionViewCell.self,
@@ -68,7 +69,8 @@ class FeedView: UIView {
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(44),
                                                        heightDimension: .estimated(44))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                               subitems: [item])
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 18
@@ -117,7 +119,7 @@ class FeedView: UIView {
             
             switch sectionIdentifier {
             case .stories:
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: SeparatorFooterView.self), for: indexPath)
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,withReuseIdentifier: String(describing: SeparatorFooterView.self), for: indexPath)
                 return header
             default:
                 return nil

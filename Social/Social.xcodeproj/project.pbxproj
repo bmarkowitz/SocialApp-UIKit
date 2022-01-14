@@ -26,6 +26,7 @@
 		8F7DDC14278E836F00FAD59D /* PostReactionsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC13278E836F00FAD59D /* PostReactionsBarView.swift */; };
 		8F7DDC16278FB16100FAD59D /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC15278FB16100FAD59D /* ActivityViewController.swift */; };
 		8F7DDC19278FB21E00FAD59D /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC18278FB21E00FAD59D /* ActivityView.swift */; };
+		8F7DDC1B2790F39C00FAD59D /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC1A2790F39C00FAD59D /* ActivityCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		8F7DDC13278E836F00FAD59D /* PostReactionsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReactionsBarView.swift; sourceTree = "<group>"; };
 		8F7DDC15278FB16100FAD59D /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8F7DDC18278FB21E00FAD59D /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		8F7DDC1A2790F39C00FAD59D /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				8F7DDC18278FB21E00FAD59D /* ActivityView.swift */,
+				8F7DDC1A2790F39C00FAD59D /* ActivityCollectionViewCell.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				8F290092278B33C30055FBA2 /* FeedViewController.swift in Sources */,
 				8F29008E278B33C30055FBA2 /* AppDelegate.swift in Sources */,
 				8F2900BE278BD6170055FBA2 /* PostHeaderView.swift in Sources */,
+				8F7DDC1B2790F39C00FAD59D /* ActivityCollectionViewCell.swift in Sources */,
 				8F2900A3278B37440055FBA2 /* SocialTabBarController.swift in Sources */,
 				8F7DDC19278FB21E00FAD59D /* ActivityView.swift in Sources */,
 				8F2900AF278B6AA60055FBA2 /* AvatarView.swift in Sources */,

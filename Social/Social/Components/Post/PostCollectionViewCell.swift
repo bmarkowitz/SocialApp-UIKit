@@ -26,6 +26,7 @@ class PostCollectionViewCell: UICollectionViewListCell {
     }
     
     private func style() {
+        
     }
     
     private func constrain() {
