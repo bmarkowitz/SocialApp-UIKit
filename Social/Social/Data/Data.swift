@@ -85,6 +85,24 @@ enum FeedItem: Identifiable, Hashable {
     }
 }
 
+enum ProfileItem: Identifiable, Hashable {
+    case info(User)
+    case post(Post)
+    
+    var id: UUID {
+        switch self {
+        case .info(let user):
+            return user.id
+        case .post(let post):
+            return post.id
+        }
+    }
+    
+    static func == (lhs: ProfileItem, rhs: ProfileItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 let defaultUser = User(name: "Ezra Ware",
                        username: "eware",
                        bio: "Food aficionado. Friend of animals everywhere. Communicator. Social media fanatic.",

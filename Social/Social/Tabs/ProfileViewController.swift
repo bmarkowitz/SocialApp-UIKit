@@ -9,11 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let contentView = UIView()
+    private let contentView = ProfileView()
     
     override func loadView() {
         view = contentView
-        view.backgroundColor = .systemBackground
     }
 
     override func viewDidLoad() {

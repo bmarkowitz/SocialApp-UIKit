@@ -28,6 +28,7 @@
 		8F7DDC19278FB21E00FAD59D /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC18278FB21E00FAD59D /* ActivityView.swift */; };
 		8F7DDC1B2790F39C00FAD59D /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC1A2790F39C00FAD59D /* ActivityCollectionViewCell.swift */; };
 		8F7DDC1E2790F8FB00FAD59D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC1D2790F8FB00FAD59D /* ProfileViewController.swift */; };
+		8F7DDC202790FB9300FAD59D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC1F2790FB9300FAD59D /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		8F7DDC18278FB21E00FAD59D /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		8F7DDC1A2790F39C00FAD59D /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F7DDC1D2790F8FB00FAD59D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8F7DDC1F2790FB9300FAD59D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		8F7DDC1C2790F8D200FAD59D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8F7DDC1F2790FB9300FAD59D /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				8F7DDC1E2790F8FB00FAD59D /* ProfileViewController.swift in Sources */,
 				8F2900A3278B37440055FBA2 /* SocialTabBarController.swift in Sources */,
 				8F7DDC19278FB21E00FAD59D /* ActivityView.swift in Sources */,
+				8F7DDC202790FB9300FAD59D /* ProfileView.swift in Sources */,
 				8F2900AF278B6AA60055FBA2 /* AvatarView.swift in Sources */,
 				8F2900B1278B82290055FBA2 /* SeparatorFooterView.swift in Sources */,
 				8F2900C0278BD7080055FBA2 /* UIFont.swift in Sources */,
