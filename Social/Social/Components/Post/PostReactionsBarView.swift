@@ -49,10 +49,9 @@ class PostReactionsBarView: UIView {
     private func style() {
         var replyButtonConfiguration = UIButton.Configuration.plain()
         replyButtonConfiguration.title = "2"
-        replyButtonConfiguration.image = UIImage(systemName: "bubble.right")
+        replyButtonConfiguration.image = UIImage(systemName: "bubble.right", withConfiguration: UIImage.SymbolConfiguration(textStyle: .caption1))
         replyButtonConfiguration.contentInsets = .zero
         replyButtonConfiguration.imagePadding = 4
-        replyButtonConfiguration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(textStyle: .caption1)
         replyButtonConfiguration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var container = incoming
             container.foregroundColor = .secondaryLabel
@@ -66,10 +65,9 @@ class PostReactionsBarView: UIView {
         
         var likeButtonConfiguration = UIButton.Configuration.plain()
         likeButtonConfiguration.title = "7"
-        likeButtonConfiguration.image = UIImage(systemName: "heart")
+        likeButtonConfiguration.image = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(textStyle: .caption1))
         likeButtonConfiguration.contentInsets = .zero
         likeButtonConfiguration.imagePadding = 4
-        likeButtonConfiguration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(textStyle: .caption1)
         likeButtonConfiguration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var container = incoming
             container.foregroundColor = .secondaryLabel
@@ -81,9 +79,8 @@ class PostReactionsBarView: UIView {
         likeButton.configuration = likeButtonConfiguration
         
         var shareButtonConfiguration = UIButton.Configuration.plain()
-        shareButtonConfiguration.image = UIImage(systemName: "square.and.arrow.up")
+        shareButtonConfiguration.image = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration(textStyle: .caption1))
         shareButtonConfiguration.contentInsets = .zero
-        shareButtonConfiguration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(textStyle: .caption1)
         shareButtonConfiguration.imageColorTransformer = UIConfigurationColorTransformer { _ in
             return .secondaryLabel
         }

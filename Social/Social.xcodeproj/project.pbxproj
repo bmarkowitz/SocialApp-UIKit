@@ -31,6 +31,7 @@
 		8F7DDC202790FB9300FAD59D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC1F2790FB9300FAD59D /* ProfileView.swift */; };
 		8F7DDC222791014600FAD59D /* ProfileInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC212791014600FAD59D /* ProfileInfoCollectionViewCell.swift */; };
 		8F7DDC24279115CB00FAD59D /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC23279115CB00FAD59D /* NSMutableAttributedString.swift */; };
+		8F7DDC262791188800FAD59D /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC252791188800FAD59D /* NewPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		8F7DDC1F2790FB9300FAD59D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8F7DDC212791014600FAD59D /* ProfileInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F7DDC23279115CB00FAD59D /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		8F7DDC252791188800FAD59D /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				8F2900B2278B82400055FBA2 /* SeparatorView.swift */,
 				8F2900B0278B82290055FBA2 /* SeparatorFooterView.swift */,
 				8F2900A2278B37440055FBA2 /* SocialTabBarController.swift */,
+				8F7DDC252791188800FAD59D /* NewPostViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				8F290092278B33C30055FBA2 /* FeedViewController.swift in Sources */,
 				8F29008E278B33C30055FBA2 /* AppDelegate.swift in Sources */,
 				8F7DDC222791014600FAD59D /* ProfileInfoCollectionViewCell.swift in Sources */,
+				8F7DDC262791188800FAD59D /* NewPostViewController.swift in Sources */,
 				8F2900BE278BD6170055FBA2 /* PostHeaderView.swift in Sources */,
 				8F7DDC1B2790F39C00FAD59D /* ActivityCollectionViewCell.swift in Sources */,
 				8F7DDC1E2790F8FB00FAD59D /* ProfileViewController.swift in Sources */,

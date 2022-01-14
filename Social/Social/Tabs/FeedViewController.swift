@@ -23,7 +23,14 @@ class FeedViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        let newPostBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"))
+        let newPostAction = UIAction { _ in
+            self.navigationController?.present(NewPostViewController(),
+                                               animated: true,
+                                               completion: nil)
+        }
+        
+        let newPostBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"),
+                                                   primaryAction: newPostAction)
         
         navigationItem.rightBarButtonItem = newPostBarButtonItem
     }
