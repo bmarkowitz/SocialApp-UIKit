@@ -47,17 +47,7 @@ class ActivityCollectionViewCell: UICollectionViewListCell {
     }
     
     private func style() {
-        let boldedName = "Steve Jobs"
-        let attributes = [NSAttributedString.Key.font : UIFont.semiBoldPreferredFont(forTextStyle: .callout)]
-        let attributedString = NSMutableAttributedString(string: boldedName, attributes: attributes)
-
-        let activityDescription = " liked your post"
-        let secondaryAttributes = [NSAttributedString.Key.font : UIFont.preferredFont(forTextStyle: .callout)]
-        let nonBoldedActivityDescription = NSMutableAttributedString(string: activityDescription, attributes: secondaryAttributes)
-
-        attributedString.append(nonBoldedActivityDescription)
-        
-        activityLabel.attributedText = attributedString
+        activityLabel.attributedText = NSMutableAttributedString.mixedString(with: "Steve Jobs", regularText: " liked your post")
         
         timeLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         timeLabel.textColor = .secondaryLabel

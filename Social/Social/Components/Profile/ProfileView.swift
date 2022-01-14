@@ -35,8 +35,8 @@ class ProfileView: UIView {
                                           collectionViewLayout: createLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.register(UICollectionViewListCell.self,
-                                forCellWithReuseIdentifier: String(describing: UICollectionViewListCell.self))
+        collectionView.register(ProfileInfoCollectionViewCell.self,
+                                forCellWithReuseIdentifier: String(describing: ProfileInfoCollectionViewCell.self))
         collectionView.register(PostCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: PostCollectionViewCell.self))
 
@@ -96,12 +96,7 @@ class ProfileView: UIView {
             
             switch sectionIdentifier {
             case .info:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier:String(describing: UICollectionViewListCell.self), for: indexPath) as! UICollectionViewListCell
-                
-                var config = cell.defaultContentConfiguration()
-                config.text = "Info Header"
-                
-                cell.contentConfiguration = config
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProfileInfoCollectionViewCell.self), for: indexPath) as! ProfileInfoCollectionViewCell
                 
                 return cell
             default:

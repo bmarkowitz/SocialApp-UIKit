@@ -9,7 +9,7 @@ import UIKit
 
 class PostHeaderView: UIView {
     private let avatarView = AvatarView()
-    private let usernameLabel = UILabel()
+    private let fullNameLabel = UILabel()
     private let infoLabel = UILabel()
     
     private let horizontalStackView = UIStackView()
@@ -39,7 +39,7 @@ class PostHeaderView: UIView {
         verticalStackView.alignment = .leading
         verticalStackView.spacing = 2
         
-        verticalStackView.addArrangedSubview(usernameLabel)
+        verticalStackView.addArrangedSubview(fullNameLabel)
         verticalStackView.addArrangedSubview(infoLabel)
         
         horizontalStackView.addArrangedSubview(avatarView)
@@ -49,8 +49,8 @@ class PostHeaderView: UIView {
     }
     
     private func style() {
-        usernameLabel.font = UIFont.boldPreferredFont(forTextStyle: .subheadline)
-        usernameLabel.text = "Brett Markowitz"
+        fullNameLabel.font = UIFont.boldPreferredFont(forTextStyle: .subheadline)
+        fullNameLabel.text = "Brett Markowitz"
         
         infoLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         infoLabel.textColor = .secondaryLabel

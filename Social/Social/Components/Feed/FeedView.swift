@@ -104,7 +104,7 @@ class FeedView: UIView {
             
             switch sectionIdentifier {
             case .stories:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier:String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
                 
                 return cell
             default:

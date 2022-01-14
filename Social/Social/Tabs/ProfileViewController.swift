@@ -19,5 +19,13 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Profile"
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        let shareBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up",
+                                                                withConfiguration: UIImage.SymbolConfiguration(weight: .semibold)))
+        
+        navigationItem.rightBarButtonItem = shareBarButtonItem
     }
 }
