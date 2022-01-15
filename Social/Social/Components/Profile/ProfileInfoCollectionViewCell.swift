@@ -114,10 +114,8 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
         followingLabel.attributedText = NSMutableAttributedString.mixedString(with: "50", regularText: " following")
         
         bioLabel.numberOfLines = 0
-        bioLabel.text = "Food aficionado. Friend of animals everywhere. Communicator. Social media fanatic."
         
         var websiteButtonConfiguration = UIButton.Configuration.plain()
-        websiteButtonConfiguration.title = "google.com"
         websiteButtonConfiguration.image = UIImage(systemName: "safari.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .callout, scale: .default))
         websiteButtonConfiguration.imagePadding = 4
         websiteButtonConfiguration.contentInsets = .zero
@@ -129,7 +127,6 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
         websiteButton.configuration = websiteButtonConfiguration
         
         var emailButtonConfiguration = UIButton.Configuration.plain()
-        emailButtonConfiguration.title = "test@email.com"
         emailButtonConfiguration.image = UIImage(systemName: "envelope.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .callout, scale: .default))
         emailButtonConfiguration.imagePadding = 4
         emailButtonConfiguration.contentInsets = .zero
@@ -153,7 +150,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
     public func configure(with user: User) {
         avatarView.configure(with: user)
         nameLabel.text = user.name
-        usernameLabel.text = user.username
+        usernameLabel.text = "@\(user.username)"
         bioLabel.text = user.bio ?? ""
         
         websiteButton.configuration?.title = user.website ?? "google.com"
