@@ -49,8 +49,10 @@ class PostHeaderView: UIView {
     }
     
     private func style() {
+        fullNameLabel.text = "Steve Jobs"
         fullNameLabel.font = UIFont.boldPreferredFont(forTextStyle: .subheadline)
         
+        infoLabel.text = "@sjobs"
         infoLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         infoLabel.textColor = .secondaryLabel
     }

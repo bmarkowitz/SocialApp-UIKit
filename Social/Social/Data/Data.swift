@@ -12,12 +12,21 @@ class Data: ObservableObject {
     
     var feedStories: [FeedItem] = []
     var feedPosts: [FeedItem] = []
+    var activities: [Activity] = []
     
     init() {
         let shuffledPosts = posts.shuffled()
         feedPosts = shuffledPosts.map { FeedItem.post($0) }
+        
+        feedStories.append(FeedItem.story(Story(user: currentUser)))
         shuffledPosts.filter { $0.user.id != currentUser.id }
                     .forEach { feedStories.append(FeedItem.story(Story(user: $0.user))) }
+        
+        self.activities = defaultActivites
+    }
+    
+    func getPostsByUserID(_ userID: UUID) -> [FeedItem] {
+        return posts.filter { $0.user.id == userID }.map { FeedItem.post($0) }
     }
 }
 
@@ -200,7 +209,7 @@ let posts = [
     Post(content: "who has recommendations for a dentist near the park?", imageURL: nil, user: defaultUser, replies: [])
 ]
 
-let activities = [
+let defaultActivites = [
     Activity(type: .liked, user: user1),
     Activity(type: .followed, user: user2),
     Activity(type: .liked, user: user2),

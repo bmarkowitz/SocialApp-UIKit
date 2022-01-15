@@ -39,6 +39,7 @@ class AvatarView: UIView {
     }
     
     private func style() {
+        imageView.image = UIImage(systemName: "person.crop.circle.fill")
         imageView.tintColor = .systemFill
         imageView.layer.cornerCurve = .circular
         imageView.layer.cornerRadius = height / 2

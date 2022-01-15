@@ -62,6 +62,8 @@ class PostCardView: UIView {
     }
     
     private func style() {
+        postLabel.text = "Here's to the crazy ones"
+        
         postImageView.layer.cornerCurve = .continuous
         postImageView.layer.cornerRadius = 12
         postImageView.backgroundColor = .systemFill

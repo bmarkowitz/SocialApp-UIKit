@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileView: UIView {
     
+    public let user: User
+    
     enum Section: Int, CaseIterable {
         case info
         case posts
@@ -17,8 +19,10 @@ class ProfileView: UIView {
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, ProfileItem.ID>!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    public init(user: User = data.currentUser) {
+        self.user = user
+        
+        super.init(frame: .zero)
         
         configure()
         style()
@@ -91,16 +95,24 @@ class ProfileView: UIView {
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, ProfileItem.ID>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<Section, ProfileItem.ID>(collectionView: collectionView, cellProvider: { [weak self] collectionView, indexPath, itemIdentifier in
+            guard let self = self else { fatalError() }
+            
             let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section)
             
             switch sectionIdentifier {
             case .info:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProfileInfoCollectionViewCell.self), for: indexPath) as! ProfileInfoCollectionViewCell
+                cell.configure(with: data.currentUser)
                 
                 return cell
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PostCollectionViewCell.self), for: indexPath) as! PostCollectionViewCell
+                
+                let item = data.getPostsByUserID(self.user.id).first { $0.id == itemIdentifier }
+                if case .post(let post) = item {
+                    cell.configure(with: post)
+                }
                 
                 return cell
             }
@@ -129,7 +141,7 @@ class ProfileView: UIView {
         
         snapshot.appendSections(sections)
         snapshot.appendItems([ProfileItem.info(defaultUser).id], toSection: .info)
-        snapshot.appendItems(posts.map { $0.id }, toSection: .posts)
+        snapshot.appendItems(data.getPostsByUserID(user.id).map { $0.id }, toSection: .posts)
         
         dataSource.apply(snapshot)
     }

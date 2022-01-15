@@ -10,7 +10,7 @@ import UIKit
 class ProfileInfoCollectionViewCell: UICollectionViewListCell {
     
     private let avatarView = AvatarView(height: 120, width: 120)
-    private let fullNameLabel = UILabel()
+    private let nameLabel = UILabel()
     private let usernameLabel = UILabel()
     private let followButton = UIButton()
     
@@ -73,7 +73,7 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
         linkButtonHorizontalStackView.distribution = .fillProportionally
         linkButtonHorizontalStackView.spacing = 25
         
-        namesVerticalStackView.addArrangedSubview(fullNameLabel)
+        namesVerticalStackView.addArrangedSubview(nameLabel)
         namesVerticalStackView.addArrangedSubview(usernameLabel)
         
         infoVerticalStackView.addArrangedSubview(avatarView)
@@ -97,11 +97,8 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
     }
     
     private func style() {
-        fullNameLabel.font = UIFont.semiBoldPreferredFont(forTextStyle: .title2)
+        nameLabel.font = UIFont.semiBoldPreferredFont(forTextStyle: .title2)
         usernameLabel.textColor = .secondaryLabel
-        
-        fullNameLabel.text = "Brett Markowitz"
-        usernameLabel.text = "@brett_0"
         
         var followButtonConfiguration = UIButton.Configuration.filled()
         followButtonConfiguration.background.cornerRadius = 8
@@ -151,5 +148,15 @@ class ProfileInfoCollectionViewCell: UICollectionViewListCell {
             containerVerticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             containerVerticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
+    }
+    
+    public func configure(with user: User) {
+        avatarView.configure(with: user)
+        nameLabel.text = user.name
+        usernameLabel.text = user.username
+        bioLabel.text = user.bio ?? ""
+        
+        websiteButton.configuration?.title = user.website ?? "google.com"
+        emailButton.configuration?.title = user.email
     }
 }

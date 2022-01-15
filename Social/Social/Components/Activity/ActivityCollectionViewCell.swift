@@ -47,11 +47,8 @@ class ActivityCollectionViewCell: UICollectionViewListCell {
     }
     
     private func style() {
-        activityLabel.attributedText = NSMutableAttributedString.mixedString(with: "Steve Jobs", regularText: " liked your post")
-        
         timeLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         timeLabel.textColor = .secondaryLabel
-        timeLabel.text = "2m"
     }
     
     private func constrain() {
@@ -61,5 +58,12 @@ class ActivityCollectionViewCell: UICollectionViewListCell {
             horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
+    }
+    
+    public func configure(with activity: Activity) {
+        avatarView.configure(with: activity.user)
+        
+        activityLabel.attributedText = NSMutableAttributedString.mixedString(with: activity.user.name, regularText: " \(activity.type == .liked ? "liked your post" : "followed you")")
+        timeLabel.text = "2m"
     }
 }

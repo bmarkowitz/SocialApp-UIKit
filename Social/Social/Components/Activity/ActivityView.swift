@@ -71,6 +71,7 @@ class ActivityView: UIView {
         dataSource = UICollectionViewDiffableDataSource<Section, FeedItem.ID>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ActivityCollectionViewCell.self), for: indexPath) as! ActivityCollectionViewCell
+            cell.configure(with: data.activities[indexPath.item])
             
             return cell
         })
@@ -84,7 +85,7 @@ class ActivityView: UIView {
         sections.append(.feed)
         
         snapshot.appendSections(sections)
-        snapshot.appendItems(activities.map { $0.id }, toSection: .feed)
+        snapshot.appendItems(data.activities.map { $0.id }, toSection: .feed)
         
         dataSource.apply(snapshot)
     }
