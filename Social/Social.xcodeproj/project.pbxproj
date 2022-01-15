@@ -36,6 +36,7 @@
 		8F7DDC2C27933E6A00FAD59D /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC2B27933E6A00FAD59D /* PostDetailViewController.swift */; };
 		8F7DDC2F2793426400FAD59D /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC2E2793426400FAD59D /* PostDetailView.swift */; };
 		8F7DDC322793542E00FAD59D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7DDC312793542E00FAD59D /* Kingfisher */; };
+		8F7DDC342793789600FAD59D /* AddStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DDC332793789600FAD59D /* AddStoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		8F7DDC292793248B00FAD59D /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		8F7DDC2B27933E6A00FAD59D /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		8F7DDC2E2793426400FAD59D /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		8F7DDC332793789600FAD59D /* AddStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				8F2900A2278B37440055FBA2 /* SocialTabBarController.swift */,
 				8F7DDC252791188800FAD59D /* NewPostViewController.swift */,
 				8F7DDC2B27933E6A00FAD59D /* PostDetailViewController.swift */,
+				8F7DDC332793789600FAD59D /* AddStoryView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8F2900BC278BCDBC0055FBA2 /* PostCollectionViewCell.swift in Sources */,
 				8F7DDC2F2793426400FAD59D /* PostDetailView.swift in Sources */,
 				8F2900AD278B6A3A0055FBA2 /* StoryCollectionViewCell.swift in Sources */,
+				8F7DDC342793789600FAD59D /* AddStoryView.swift in Sources */,
 				8F7DDC2C27933E6A00FAD59D /* PostDetailViewController.swift in Sources */,
 				8F2900C3278BE07F0055FBA2 /* PostCardView.swift in Sources */,
 				8F290090278B33C30055FBA2 /* SceneDelegate.swift in Sources */,

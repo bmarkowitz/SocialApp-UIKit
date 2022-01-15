@@ -12,6 +12,8 @@ class StoryCollectionViewCell: UICollectionViewCell {
     private let avatarView = AvatarView(height: 64, width: 64)
     private let nameLabel = UILabel()
     
+    private let addStoryView = AddStoryView()
+    
     private let stackView = UIStackView()
     
     override init(frame: CGRect) {
@@ -30,8 +32,12 @@ class StoryCollectionViewCell: UICollectionViewCell {
         stackView.alignment = .center
         stackView.spacing = 4
         
+        addStoryView.isHidden = true
+        
         stackView.addArrangedSubview(avatarView)
         stackView.addArrangedSubview(nameLabel)
+        
+        avatarView.addSubview(addStoryView)
         contentView.addSubview(stackView)
     }
     
@@ -52,12 +58,22 @@ class StoryCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             trailingConstraint,
-            bottomConstraint
+            bottomConstraint,
+            
+            addStoryView.bottomAnchor.constraint(equalTo: avatarView.bottomAnchor),
+            addStoryView.trailingAnchor.constraint(equalTo: avatarView.trailingAnchor)
         ])
     }
     
-    public func configure(with user: User) {
+    public func configure(with user: User, shouldShowAddStory: Bool = false) {
         avatarView.configure(with: user)
         nameLabel.text = user.name.components(separatedBy: " ")[0]
+        
+        if shouldShowAddStory {
+            addStoryView.isHidden = false
+        }
+        else {
+            addStoryView.isHidden = true
+        }
     }
 }
