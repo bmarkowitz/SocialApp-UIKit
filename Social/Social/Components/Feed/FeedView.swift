@@ -116,7 +116,7 @@ class FeedView: UIView {
                 
                 let item = data.feedStories.first { $0.id == itemIdentifier }
                 if case .story(let story) = item {
-                    cell.configure(with: story.user, shouldShowAddStory: indexPath.item == 0)
+                    cell.configure(with: story.user, isCurrentUser: story.user.id == data.currentUser.id)
                 }
                 
                 return cell

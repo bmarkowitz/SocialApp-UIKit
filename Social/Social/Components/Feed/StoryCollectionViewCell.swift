@@ -65,15 +65,18 @@ class StoryCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    public func configure(with user: User, shouldShowAddStory: Bool = false) {
+    public func configure(with user: User, isCurrentUser: Bool = false) {
         avatarView.configure(with: user)
-        nameLabel.text = user.name.components(separatedBy: " ")[0]
         
-        if shouldShowAddStory {
+        if isCurrentUser {
             addStoryView.isHidden = false
+            nameLabel.textColor = .secondaryLabel
+            nameLabel.text = "You"
         }
         else {
             addStoryView.isHidden = true
+            nameLabel.textColor = .label
+            nameLabel.text = user.name.components(separatedBy: " ")[0]
         }
     }
 }
