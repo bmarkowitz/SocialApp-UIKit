@@ -38,7 +38,6 @@ class StoryCollectionViewCell: UICollectionViewCell {
     private func style() {
         nameLabel.font = .preferredFont(forTextStyle: .caption1)
         nameLabel.textColor = .secondaryLabel
-        nameLabel.text = "Brett"
     }
     
     private func constrain() {
@@ -55,5 +54,9 @@ class StoryCollectionViewCell: UICollectionViewCell {
             trailingConstraint,
             bottomConstraint
         ])
+    }
+    
+    public func configure(with user: User) {
+        nameLabel.text = user.name.components(separatedBy: " ")[0]
     }
 }

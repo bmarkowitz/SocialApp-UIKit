@@ -50,11 +50,9 @@ class PostHeaderView: UIView {
     
     private func style() {
         fullNameLabel.font = UIFont.boldPreferredFont(forTextStyle: .subheadline)
-        fullNameLabel.text = "Brett Markowitz"
         
         infoLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         infoLabel.textColor = .secondaryLabel
-        infoLabel.text = "@brett_0 · 1h"
     }
     
     private func constrain() {
@@ -64,5 +62,10 @@ class PostHeaderView: UIView {
             horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    public func configure(with post: Post) {
+        fullNameLabel.text = post.user.name
+        infoLabel.text = "@\(post.user.username) · \(post.formattedDate())"
     }
 }

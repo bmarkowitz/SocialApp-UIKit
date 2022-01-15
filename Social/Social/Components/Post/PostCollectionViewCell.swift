@@ -37,4 +37,8 @@ class PostCollectionViewCell: UICollectionViewListCell {
             postCardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
     }
+    
+    public func configure(with post: Post) {
+        postCardView.configure(with: post)
+    }
 }

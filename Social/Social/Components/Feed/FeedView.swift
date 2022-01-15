@@ -114,9 +114,19 @@ class FeedView: UIView {
             case .stories:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StoryCollectionViewCell.self), for: indexPath) as! StoryCollectionViewCell
                 
+                let item = data.feedStories.first { $0.id == itemIdentifier }
+                if case .story(let story) = item {
+                    cell.configure(with: story.user)
+                }
+                
                 return cell
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PostCollectionViewCell.self), for: indexPath) as! PostCollectionViewCell
+                
+                let item = data.feedPosts.first { $0.id == itemIdentifier }
+                if case .post(let post) = item {
+                    cell.configure(with: post)
+                }
                 
                 return cell
             }
@@ -144,8 +154,8 @@ class FeedView: UIView {
         sections.append(.posts)
         
         snapshot.appendSections(sections)
-        snapshot.appendItems(stories.map { $0.id }, toSection: .stories)
-        snapshot.appendItems(posts.map { $0.id }, toSection: .posts)
+        snapshot.appendItems(data.feedStories.map { $0.id }, toSection: .stories)
+        snapshot.appendItems(data.feedPosts.map { $0.id }, toSection: .posts)
         
         dataSource.apply(snapshot)
     }

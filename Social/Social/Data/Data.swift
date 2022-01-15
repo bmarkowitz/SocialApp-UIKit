@@ -7,6 +7,20 @@
 
 import Foundation
 
+class Data: ObservableObject {
+    var currentUser = defaultUser
+    
+    var feedStories: [FeedItem] = []
+    var feedPosts: [FeedItem] = []
+    
+    init() {
+        posts.forEach { feedStories.append(FeedItem.story(Story(user: $0.user))) }
+        feedPosts = posts.shuffled().map { FeedItem.post($0) }
+    }
+}
+
+let data = Data()
+
 struct User: Hashable {
     var id = UUID()
     var name: String
@@ -166,22 +180,22 @@ let stories = [FeedItem.story(Story(user: defaultUser)),
                FeedItem.story(Story(user: user5))]
 
 let posts = [
-    FeedItem.post(Post(content: "tonight's dinner 😋", imageURL: "https://images.unsplash.com/photo-1539136788836-5699e78bfc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: defaultUser, replies: [
+    Post(content: "tonight's dinner 😋", imageURL: "https://images.unsplash.com/photo-1539136788836-5699e78bfc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: defaultUser, replies: [
         Post(content: "Yum", imageURL: nil, user: user1, replies: [])
-    ])),
-    FeedItem.post(Post(content: "Central Park", imageURL: "https://images.unsplash.com/photo-1603471759569-2bfc3a180309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: user1, replies: [])),
-    FeedItem.post(Post(content: "who's coming to the party tonight?", imageURL: nil, user: user2, replies: [
+    ]),
+    Post(content: "Central Park", imageURL: "https://images.unsplash.com/photo-1603471759569-2bfc3a180309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: user1, replies: []),
+    Post(content: "who's coming to the party tonight?", imageURL: nil, user: user2, replies: [
         Post(content: "me!", imageURL: nil, user: defaultUser, replies: []),
         Post(content: "See you there.", imageURL: nil, user: user5, replies: [])
-    ])),
-    FeedItem.post(Post(content: "just setting up my feedr", imageURL: nil, user: user3, replies: [])),
-    FeedItem.post(Post(content: "We're hiring customer support specialists. Let me know if anyone comes to mind!", imageURL: nil, user: user4, replies: [
+    ]),
+    Post(content: "just setting up my feedr", imageURL: nil, user: user3, replies: []),
+    Post(content: "We're hiring customer support specialists. Let me know if anyone comes to mind!", imageURL: nil, user: user4, replies: [
         Post(content: "I'll DM you.", imageURL: nil, user: defaultUser, replies: [])
-    ])),
-    FeedItem.post(Post(content: "And we're off ✈️", imageURL: "https://images.unsplash.com/photo-1575427862440-9afbff3e64ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: user5, replies: [
+    ]),
+    Post(content: "And we're off ✈️", imageURL: "https://images.unsplash.com/photo-1575427862440-9afbff3e64ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=960&q=80", user: user5, replies: [
         Post(content: "have fun!", imageURL: nil, user: user4, replies: [])
-    ])),
-    FeedItem.post(Post(content: "who has recommendations for a dentist near the park?", imageURL: nil, user: defaultUser, replies: [])),
+    ]),
+    Post(content: "who has recommendations for a dentist near the park?", imageURL: nil, user: defaultUser, replies: [])
 ]
 
 let activities = [

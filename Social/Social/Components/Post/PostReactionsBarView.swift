@@ -95,4 +95,9 @@ class PostReactionsBarView: UIView {
             actionsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
+    public func configure(with post: Post) {
+        replyButton.configuration?.title = String(post.replies.count)
+        likeButton.configuration?.title = String(post.likes)
+    }
 }

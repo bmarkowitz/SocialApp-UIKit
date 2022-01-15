@@ -43,7 +43,7 @@ class PostCardView: UIView {
         verticalStackView.spacing = 8
         
         contentVerticalStackView.axis = .vertical
-        contentVerticalStackView.spacing = 8
+        contentVerticalStackView.spacing = 16
         
         contentHorizontalStackView.axis = .horizontal
         
@@ -61,8 +61,6 @@ class PostCardView: UIView {
     }
     
     private func style() {
-        postLabel.text = "This is a test post"
-        
         postImageView.layer.cornerCurve = .continuous
         postImageView.layer.cornerRadius = 12
         postImageView.backgroundColor = .systemFill
@@ -91,6 +89,19 @@ class PostCardView: UIView {
                 postImageView.widthAnchor.constraint(equalTo: contentVerticalStackView.widthAnchor),
                 postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor)
             ])
+        }
+    }
+    
+    public func configure(with post: Post) {
+        postHeaderView.configure(with: post)
+        postLabel.text = post.content
+        postReactionsBarView.configure(with: post)
+        
+        if post.imageURL != nil {
+            postImageView.isHidden = false
+        }
+        else {
+            postImageView.isHidden = true
         }
     }
 }
