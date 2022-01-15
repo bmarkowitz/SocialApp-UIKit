@@ -8,10 +8,17 @@
 import UIKit
 
 class NewPostViewController: UIViewController {
+    
+    private let contentView = NewPostView()
+    
+    override func loadView() {
+        view = contentView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "New"
         view.backgroundColor = .systemBackground
     }
 }

@@ -24,7 +24,7 @@ class FeedViewController: UIViewController {
     
     private func configureNavigationBar() {
         let newPostAction = UIAction { _ in
-            self.navigationController?.present(NewPostViewController(),
+            self.navigationController?.present(UINavigationController(rootViewController: NewPostViewController()),
                                                animated: true,
                                                completion: nil)
         }
