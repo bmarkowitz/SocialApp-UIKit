@@ -24,7 +24,7 @@ class SocialTabBarController: UITabBarController {
     
     private func createFeedViewController() -> FeedViewController {
         let feedViewController = FeedViewController()
-        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper"), tag: 0)
+        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper.fill"), tag: 0)
         
         return feedViewController
     }

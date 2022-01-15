@@ -12,6 +12,8 @@ class FeedViewController: UIViewController {
     private let contentView = FeedView()
     
     override func loadView() {
+        contentView.delegate = self
+        
         view = contentView
     }
 
@@ -33,5 +35,11 @@ class FeedViewController: UIViewController {
                                                    primaryAction: newPostAction)
         
         navigationItem.rightBarButtonItem = newPostBarButtonItem
+    }
+}
+
+extension FeedViewController: FeedViewDelegate {
+    func didTapPost() {
+        navigationController?.pushViewController(PostDetailViewController(), animated: true)
     }
 }

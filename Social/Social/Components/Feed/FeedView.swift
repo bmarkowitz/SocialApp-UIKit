@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FeedViewDelegate: NSObject {
+    func didTapPost()
+}
+
 class FeedView: UIView {
     
     enum Section: Int, CaseIterable {
@@ -16,6 +20,8 @@ class FeedView: UIView {
     
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, FeedItem.ID>!
+    
+    public weak var delegate: FeedViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +40,8 @@ class FeedView: UIView {
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: createLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView.delegate = self
         
         collectionView.register(StoryCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: StoryCollectionViewCell.self))
@@ -140,5 +148,17 @@ class FeedView: UIView {
         snapshot.appendItems(posts.map { $0.id }, toSection: .posts)
         
         dataSource.apply(snapshot)
+    }
+}
+
+extension FeedView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = Section.init(rawValue: indexPath.section)
+        
+        if section == .posts {
+            delegate?.didTapPost()
+        }
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
