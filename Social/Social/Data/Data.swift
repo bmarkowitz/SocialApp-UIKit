@@ -14,8 +14,10 @@ class Data: ObservableObject {
     var feedPosts: [FeedItem] = []
     
     init() {
-        posts.forEach { feedStories.append(FeedItem.story(Story(user: $0.user))) }
-        feedPosts = posts.shuffled().map { FeedItem.post($0) }
+        let shuffledPosts = posts.shuffled()
+        feedPosts = shuffledPosts.map { FeedItem.post($0) }
+        shuffledPosts.filter { $0.user.id != currentUser.id }
+                    .forEach { feedStories.append(FeedItem.story(Story(user: $0.user))) }
     }
 }
 

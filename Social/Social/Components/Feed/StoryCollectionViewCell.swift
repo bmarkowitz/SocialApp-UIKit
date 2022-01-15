@@ -57,6 +57,7 @@ class StoryCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with user: User) {
+        avatarView.configure(with: user)
         nameLabel.text = user.name.components(separatedBy: " ")[0]
     }
 }

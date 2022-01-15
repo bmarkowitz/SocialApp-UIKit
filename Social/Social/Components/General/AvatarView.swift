@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AvatarView: UIView {
     
@@ -31,8 +32,8 @@ class AvatarView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "person.crop.circle.fill")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         addSubview(imageView)
     }
@@ -60,5 +61,14 @@ class AvatarView: UIView {
             trailingConstraint,
             bottomConstraint
         ])
+    }
+    
+    public func configure(with user: User) {
+        if let avatarUrl = user.avatarURL {
+            imageView.kf.setImage(with: URL(string: avatarUrl))
+        }
+        else {
+            imageView.image = UIImage(systemName: "person.crop.circle.fill")
+        }
     }
 }

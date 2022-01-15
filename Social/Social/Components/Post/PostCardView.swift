@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostCardView: UIView {
     
@@ -64,8 +65,9 @@ class PostCardView: UIView {
         postImageView.layer.cornerCurve = .continuous
         postImageView.layer.cornerRadius = 12
         postImageView.backgroundColor = .systemFill
-        postImageView.contentMode = .scaleAspectFit
+        postImageView.contentMode = .scaleAspectFill
         postImageView.clipsToBounds = true
+        postImageView.isHidden = true
     }
     
     private func constrain() {
@@ -79,17 +81,11 @@ class PostCardView: UIView {
             verticalStackView.topAnchor.constraint(equalTo: topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomConstraint
+            bottomConstraint,
+            
+            postImageView.widthAnchor.constraint(equalTo: contentVerticalStackView.widthAnchor),
+            postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor, multiplier: 0.75)
         ])
-        
-        if let image = postImageView.image {
-            postImageView.widthAnchor.constraint(equalTo: postImageView.heightAnchor, multiplier: image.size.width / image.size.height).isActive = true
-        } else {
-            NSLayoutConstraint.activate([
-                postImageView.widthAnchor.constraint(equalTo: contentVerticalStackView.widthAnchor),
-                postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor)
-            ])
-        }
     }
     
     public func configure(with post: Post) {
@@ -97,8 +93,9 @@ class PostCardView: UIView {
         postLabel.text = post.content
         postReactionsBarView.configure(with: post)
         
-        if post.imageURL != nil {
+        if let postImageUrl = post.imageURL {
             postImageView.isHidden = false
+            postImageView.kf.setImage(with: URL(string: postImageUrl))
         }
         else {
             postImageView.isHidden = true

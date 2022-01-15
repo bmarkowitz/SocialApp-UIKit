@@ -65,6 +65,7 @@ class PostHeaderView: UIView {
     }
     
     public func configure(with post: Post) {
+        avatarView.configure(with: post.user)
         fullNameLabel.text = post.user.name
         infoLabel.text = "@\(post.user.username) · \(post.formattedDate())"
     }
