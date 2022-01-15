@@ -103,6 +103,24 @@ enum ProfileItem: Identifiable, Hashable {
     }
 }
 
+enum PostDetailItem: Identifiable, Hashable {
+    case post(Post)
+    case reply(Post)
+    
+    var id: UUID {
+        switch self {
+        case .post(let post):
+            return post.id
+        case .reply(let reply):
+            return reply.id
+        }
+    }
+    
+    static func == (lhs: PostDetailItem, rhs: PostDetailItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 let defaultUser = User(name: "Ezra Ware",
                        username: "eware",
                        bio: "Food aficionado. Friend of animals everywhere. Communicator. Social media fanatic.",

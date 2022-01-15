@@ -9,7 +9,7 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
     
-    private let contentView = UIView()
+    private let contentView = PostDetailView()
     
     override func loadView() {
         view = contentView
