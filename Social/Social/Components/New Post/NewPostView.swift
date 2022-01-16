@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewPostView: UIView {
     
@@ -30,6 +31,8 @@ class NewPostView: UIView {
         textView.delegate = self
         
         textView.addSubview(placeholderLabel)
+        
+        avatarView.configure(with: data.currentUser)
         
         addSubview(avatarView)
         addSubview(textView)
